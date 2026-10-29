@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Votre Entreprise - Paysagiste à Lyon</title>
+  <meta
+    name="description"
+    content="Entretien de jardins, taille de haies, tonte et aménagement paysager à Lyon et dans les environs."
+  >
+
+  <style>
+    :root {
+      --vert-fonce: #173f2a;
+      --vert: #2f7d4a;
+      --vert-clair: #eaf4ec;
+      --beige: #f7f4ec;
+      --blanc: #ffffff;
+      --texte: #26332b;
+      --ombre: 0 12px 30px rgba(23, 63, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texte);
+      background: var(--blanc);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .conteneur {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      color: var(--vert-fonce);
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--vert);
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .navigation a:hover {
+      color: var(--vert);
+    }
+
+    .bouton {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 2px solid var(--vert);
+      border-radius: 8px;
+      background: var(--vert);
+      color: var(--blanc);
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .bouton:hover {
+      background: var(--vert-fonce);
+      border-color: var(--vert-fonce);
+      transform: translateY(-2px);
+    }
+
+    .bouton-secondaire {
+      margin-left: 10px;
+      background: transparent;
+      color: var(--blanc);
+      border-color: var(--blanc);
+    }
+
+    .bouton-secondaire:hover {
+      background: var(--blanc);
+      border-color: var(--blanc);
+      color: var(--vert-fonce);
+    }
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+      color: var(--blanc);
+      background:
+        linear-gradient(rgba(12, 45, 27, 0.72), rgba(12, 45, 27, 0.82)),
+        url("[images.unsplash.com](https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=80)")
+        center/cover;
+    }
+
+    .hero-contenu {
+      max-width: 760px;
+      padding: 80px 0;
+    }
+
+    .etiquette {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 13px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.18);
+      font-weight: 700;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.06;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .titre-section {
+      max-width: 700px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .titre-section h2 {
+      margin-bottom: 12px;
+      color: var(--vert-fonce);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .services {
+      background: var(--beige);
+    }
+
+    .grille {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .carte {
+      padding: 30px;
+      border-radius: 14px;
+      background: var(--blanc);
+      box-shadow: var(--ombre);
+      transition: 0.2s;
+    }
+
+    .carte:hover {
+      transform: translateY(-6px);
+    }
+
+    .icone {
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+    }
+
+    .carte h3 {
+      margin-bottom: 10px;
+      color: var(--vert-fonce);
+    }
+
+    .a-propos-contenu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .a-propos img {
+      width: 100%;
+      min-height: 420px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: var(--ombre);
+    }
+
+    .a-propos h2 {
+      margin-bottom: 18px;
+      color: var(--vert-fonce);
+      font-size: 2.6rem;
+    }
+
+    .avantages {
+      margin: 25px 0;
+      list-style: none;
+    }
+
+    .avantages li {
+      margin-bottom: 10px;
+    }
+
+    .avantages li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: var(--vert);
+      font-weight: bold;
+    }
+
+    .zone {
+      color: var(--blanc);
+      text-align: center;
+      background: var(--vert-fonce);
+    }
+
+    .zone h2 {
+      margin-bottom: 14px;
+      font-size: 2.5rem;
+    }
+
+    .zone p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .contact {
+      background: var(--vert-clair);
+    }
+
+    .contact-contenu {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 45px;
+    }
+
+    .coordonnees h2 {
+      margin-bottom: 18px;
+      color: var(--vert-fonce);
+      font-size: 2.5rem;
+    }
+
+    .coordonnees p {
+      margin-bottom: 14px;
+    }
+
+    form {
+      padding: 32px;
+      border-radius: 14px;
+      background: var(--blanc);
+      box-shadow: var(--ombre);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 18px;
+      padding: 13px;
+      border: 1px solid #b9c8bd;
+      border-radius: 7px;
+      font: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--vert);
+      border-color: transparent;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--blanc);
+      text-align: center;
+      background: #102c1e;
+    }
+
+    @media (max-width: 850px) {
+      .navigation {
+        display: none;
+      }
+
+      .grille,
+      .a-propos-contenu,
+      .contact-contenu {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .bouton {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="conteneur">
+      <a class="logo" href="#accueil">Votre <span>Entreprise</span></a>
+
+      <ul class="navigation">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#entreprise">L'entreprise</a></li>
+        <li><a href="#zone">Zone d'intervention</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="bouton" href="tel:+33600000000">06 00 00 00 00</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="conteneur">
+        <div class="hero-contenu">
+          <span class="etiquette">Paysagiste à Lyon et ses environs</span>
+
+          <h1>Votre jardin, entretenu avec soin</h1>
+
+          <p>
+            Création, entretien et embellissement de vos espaces verts pour
+            les particuliers, les entreprises et les copropriétés.
+          </p>
+
+          <a class="bouton" href="#contact">Demander un devis gratuit</a>
+          <a class="bouton bouton-secondaire" href="tel:+33600000000">
+            Nous appeler
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Nos services d'espaces verts</h2>
+          <p>
+            Des prestations adaptées à votre jardin et à vos besoins,
+            ponctuellement ou tout au long de l'année.
+          </p>
+        </div>
+
+        <div class="grille">
+          <article class="carte">
+            <div class="icone">🌿</div>
+            <h3>Entretien de jardin</h3>
+            <p>
+              Désherbage, débroussaillage, ramassage des feuilles et entretien
+              régulier de vos extérieurs.
+            </p>
+          </article>
+
+          <article class="carte">
+            <div class="icone">🌱</div>
+            <h3>Tonte de pelouse</h3>
+            <p>
+              Tonte soignée, finitions des bordures et évacuation des déchets
+              verts.
+            </p>
+          </article>
+
+          <article class="carte">
+            <div class="icone">✂️</div>
+            <h3>Taille de haies</h3>
+            <p>
+              Taille de haies, arbustes et petits arbres, dans le respect de
+              leur développement.
+            </p>
+          </article>
+
+          <article class="carte">
+            <div class="icone">🌳</div>
+            <h3>Élagage</h3>
+            <p>
+              Entretien et taille raisonnée des arbres pour préserver leur
+              santé et sécuriser votre terrain.
+            </p>
+          </article>
+
+          <article class="carte">
+            <div class="icone">🏡</div>
+            <h3>Aménagement paysager</h3>
+            <p>
+              Plantation, création de massifs et amélioration esthétique de
+              vos espaces extérieurs.
+            </p>
+          </article>
+
+          <article class="carte">
+            <div class="icone">♻️</div>
+            <h3>Évacuation des déchets</h3>
+            <p>
+              Collecte et évacuation des branches, feuilles et déchets issus
+              de nos interventions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-propos" id="entreprise">
+      <div class="conteneur a-propos-contenu">
+        <img
+          src="[images.unsplash.com](https://images.unsplash.com/photo-1599685315640-9ceab2f581ca?auto=format&fit=crop&w=1000&q=80)"
+          alt="Professionnel entretenant un espace vert"
+        >
+
+        <div>
+          <h2>Un professionnel proche de chez vous</h2>
+
+          <p>
+            Nous intervenons avec du matériel adapté pour entretenir et
+            valoriser votre jardin. Chaque chantier fait l'objet d'une écoute
+            attentive et d'un devis clair.
+          </p>
+
+          <ul class="avantages">
+            <li>Devis gratuit et personnalisé</li>
+            <li>Interventions ponctuelles ou régulières</li>
+            <li>Travail propre et soigné</li>
+            <li>Conseils adaptés à votre extérieur</li>
+            <li>Service de proximité dans la métropole lyonnaise</li>
+          </ul>
+
+          <a class="bouton" href="#contact">Obtenir un devis</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="zone" id="zone">
+      <div class="conteneur">
+        <h2>Nous intervenons à Lyon et alentour</h2>
+
+        <p>
+          Lyon, Villeurbanne, Caluire-et-Cuire, Bron, Vénissieux, Oullins,
+          Tassin-la-Demi-Lune, Écully et les communes voisines.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="conteneur contact-contenu">
+        <div class="coordonnees">
+          <h2>Parlons de votre jardin</h2>
+
+          <p>
+            Décrivez-nous votre besoin pour recevoir une estimation gratuite.
+          </p>
+
+          <p>
+            <strong>Téléphone :</strong>
+            <a href="tel:+33600000000">06 00 00 00 00</a>
+          </p>
+
+          <p>
+            <strong>E-mail :</strong>
+            <a href="mailto:contact@votreentreprise.fr">
+              contact@votreentreprise.fr
+            </a>
+          </p>
+
+          <p><strong>Horaires :</strong> du lundi au samedi, de 8 h à 19 h</p>
+        </div>
+
+        <!-- Remplacez VOTRE_EMAIL par votre adresse e-mail sur FormSubmit. -->
+        <form action="[formsubmit.co](https://formsubmit.co/VOTRE_EMAIL)" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis">
+          <input type="hidden" name="_captcha" value="false">
+
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" required>
+
+          <label for="telephone">Téléphone</label>
+          <input id="telephone" name="telephone" type="tel" required>
+
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required>
+
+          <label for="message">Votre besoin</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Exemple : taille d'une haie de 20 mètres à Villeurbanne"
+            required
+          ></textarea>
+
+          <button class="bouton" type="submit">Envoyer ma demande</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="conteneur">
+      <p>
+        &copy; <span id="annee"></span> Votre Entreprise - Espaces verts à Lyon
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("annee").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
